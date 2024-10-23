@@ -1,1 +1,57 @@
+# Subdomain Enumeration Automation Script
+
+## Overview
+
+This Bash script automates the process of subdomain enumeration using `assetfinder` and `httprobe`. It captures live subdomains and saves them in a sorted output file.
+
+## Features
+
+- Finds subdomains for a given domain using `assetfinder`.
+- Checks which subdomains are live using `httprobe`.
+- Cleans and sorts the live subdomains list.
+- Saves the sorted list to a specified output file.
+
+## Requirements
+
+Make sure you have the following tools installed:
+
+- `assetfinder`
+- `httprobe`
+
+You can install them with:
+
+go get -u github.com/tomnomnom/assetfinder 
+
+go get -u github.com/tomnomnom/httprobe
+
+
+## Usage
+
+Run the script with the following command: ./subenum.sh example.com live_subdomains.txt
+
+
+
+This will:
+
+1. Find subdomains for `example.com`.
+2. Probe which subdomains are live.
+3. Save the sorted live subdomains to `live_subdomains.txt`.
+
+## How It Works
+
+1. `assetfinder` gathers all subdomains for the specified domain.
+2. `httprobe` filters out live subdomains and stores them in `subdomains_live.txt`.
+3. The live subdomains are cleaned and sorted, then saved to the specified output file.
+
+## Output
+
+- The sorted live subdomains are saved in the file specified in the second argument.
+
+## Cleanup
+
+The script removes temporary files created during the process (`tmp_subs.txt`, `urls.txt`, `subdomains.txt`, and `subdomains_live.txt`).
+
+## License
+
+Feel free to use or modify this script.
 
